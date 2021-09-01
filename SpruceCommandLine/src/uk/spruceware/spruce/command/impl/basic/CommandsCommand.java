@@ -1,4 +1,4 @@
-package uk.spruceware.spruce.command.impl;
+package uk.spruceware.spruce.command.impl.basic;
 
 import java.util.Scanner;
 
@@ -17,10 +17,10 @@ public class CommandsCommand extends Command{
 	@Override
 	public void onType() {
 		System.out.println("Current Commands :");
-		CommandLine.getCommandsManager();
-		for(Command c : CommandManager.getCommands()) {
+		CommandManager commandManager = CommandLine.getCommandsManager();
+		for(Command c : commandManager.getCommands()) {
 			System.out.println("-" + c.getName());
-			onFinish();
 		}
+		end();
 	}
 }

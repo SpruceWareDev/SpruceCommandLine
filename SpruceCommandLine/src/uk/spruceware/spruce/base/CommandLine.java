@@ -19,14 +19,14 @@ public class CommandLine {
 	
 	public static void handleCommands() {
 		System.out.print(">");
-		String nextCommand = consoleScanner.nextLine();
-		for(Command c : CommandManager.getCommands()) {
-			if(nextCommand.equalsIgnoreCase(c.name)) {
-				c.onType();
-			}else {
-				System.out.println("Unknown Command. Try Running Commands To See Commands!");
-				handleCommands();
-			}
+		String nextCommand;
+		nextCommand = consoleScanner.nextLine();
+		if(commandManager.getCommands().contains(commandManager.getCommandByName(nextCommand))) {
+			Command c = commandManager.getCommandByName(nextCommand);
+			c.onType();
+		}else {
+			System.out.println("Command Not Found!");
+			handleCommands();
 		}
 	}
 	

@@ -1,24 +1,33 @@
 package uk.spruceware.spruce.command;
 
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.ArrayList;
 
-import uk.spruceware.spruce.command.impl.CommandsCommand;
+import uk.spruceware.spruce.command.impl.basic.CommandsCommand;
+import uk.spruceware.spruce.command.impl.basic.HelpCommand;
+import uk.spruceware.spruce.command.impl.basic.QuitCommand;
 
 public class CommandManager {
 
-	private static CopyOnWriteArrayList<Command> commands;
+	private ArrayList<Command> commands;
 	
 	public CommandManager() {
-		commands = new CopyOnWriteArrayList<>();
+		commands = new ArrayList<>();
 		
-		addCommand(new CommandsCommand());
+		commands.add(new CommandsCommand());
+		commands.add(new HelpCommand());
+		commands.add(new QuitCommand());
 	}
 	
-	public void addCommand(Command c) {
-		commands.add(c);
-	}
-	
-	public static CopyOnWriteArrayList<Command> getCommands() {
+	public ArrayList<Command> getCommands() {
 		return commands;
+	}
+	
+	public Command getCommandByName(String name) {
+		for(Command c : commands) {
+			if(c.name.equalsIgnoreCase(name)) {
+				return c;
+			}
+		}
+		return new CommandsCommand();
 	}
 }

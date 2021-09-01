@@ -20,7 +20,7 @@ public class Command {
 		CommandLine.setScanner(cmdScanner);
 	}
 	
-	public void onFinish() {
+	public void end() {
 		CommandLine.setScanner(CommandLine.consoleScanner);
 		new CommandLine();
 	}
