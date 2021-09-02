@@ -8,7 +8,7 @@ import uk.spruceware.spruce.command.CommandManager;
 public class CommandLine {
 
 	public static Scanner consoleScanner;
-	public static String name = "Spruce Command Line", version = "0.0.1";
+	public static String name = "Spruce Command Line", version = "0.0.2";
 	private static CommandManager commandManager;
 	
 	public CommandLine() {
@@ -21,9 +21,10 @@ public class CommandLine {
 		System.out.print(">");
 		String nextCommand;
 		nextCommand = consoleScanner.nextLine();
-		if(commandManager.getCommands().contains(commandManager.getCommandByName(nextCommand))) {
-			Command c = commandManager.getCommandByName(nextCommand);
-			c.onType();
+		String[] args = nextCommand.split(" ");
+		if(commandManager.getCommands().contains(commandManager.getCommandByName(args[0]))) {
+			Command c = commandManager.getCommandByName(args[0]);
+			c.onType(nextCommand);
 		}else {
 			System.out.println("Command Not Found!");
 			handleCommands();

@@ -15,7 +15,7 @@ public class CommandsCommand extends Command{
 	}
 	
 	@Override
-	public void onType() {
+	public void onType(String commandTyped) {
 		System.out.println("Current Commands :");
 		CommandManager commandManager = CommandLine.getCommandsManager();
 		for(Command c : commandManager.getCommands()) {

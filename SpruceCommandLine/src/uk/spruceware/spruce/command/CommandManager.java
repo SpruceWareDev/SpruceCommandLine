@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import uk.spruceware.spruce.command.impl.basic.CommandsCommand;
 import uk.spruceware.spruce.command.impl.basic.HelpCommand;
+import uk.spruceware.spruce.command.impl.basic.PrintCommand;
 import uk.spruceware.spruce.command.impl.basic.QuitCommand;
 
 public class CommandManager {
@@ -16,6 +17,7 @@ public class CommandManager {
 		commands.add(new CommandsCommand());
 		commands.add(new HelpCommand());
 		commands.add(new QuitCommand());
+		commands.add(new PrintCommand());
 	}
 	
 	public ArrayList<Command> getCommands() {

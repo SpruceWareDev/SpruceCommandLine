@@ -13,7 +13,7 @@ public class QuitCommand extends Command{
 	}
 	
 	@Override
-	public void onType() {
+	public void onType(String commandTyped) {
 		System.exit(0);
 	}
 }

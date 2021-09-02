@@ -15,7 +15,7 @@ public class HelpCommand extends Command{
 	}
 	
 	@Override
-	public void onType() {
+	public void onType(String commandTyped) {
 		System.out.println("Commands and there use :");
 		CommandManager commandManager = CommandLine.getCommandsManager();
 		for(Command c : commandManager.getCommands()) {

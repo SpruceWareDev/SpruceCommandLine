@@ -16,7 +16,7 @@ public class Command {
 		this.cmdScanner = sc;
 	}
 	
-	public void onType() {
+	public void onType(String commandTyped) {
 		CommandLine.setScanner(cmdScanner);
 	}
 	
