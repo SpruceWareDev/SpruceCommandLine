@@ -6,6 +6,7 @@ import uk.spruceware.spruce.command.impl.basic.CommandsCommand;
 import uk.spruceware.spruce.command.impl.basic.HelpCommand;
 import uk.spruceware.spruce.command.impl.basic.PrintCommand;
 import uk.spruceware.spruce.command.impl.basic.QuitCommand;
+import uk.spruceware.spruce.command.impl.program.SpruceEncrypt;
 
 public class CommandManager {
 
@@ -18,6 +19,7 @@ public class CommandManager {
 		commands.add(new HelpCommand());
 		commands.add(new QuitCommand());
 		commands.add(new PrintCommand());
+		commands.add(new SpruceEncrypt());
 	}
 	
 	public ArrayList<Command> getCommands() {
